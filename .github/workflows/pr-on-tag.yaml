@@ -1,0 +1,22 @@
+name: Deploy to production environment
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Update manifest
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        repository: devnjw/cd-study
+        event-type: update-hook
+        client-payload: '{"tag": "${{ steps.version.outputs.tag }}"}'
