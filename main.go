@@ -6,7 +6,7 @@ import (
 
 // Calculate returns x + 2.
 func Calculate(x int) (result int) {
-	result = x + 2
+	result = x + 3
 	return result
 }
 

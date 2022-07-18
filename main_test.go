@@ -5,7 +5,7 @@ import (
 )
 
 func TestCalculate(t *testing.T) {
-	if Calculate(2) != 4 {
+	if Calculate(2) != 5 {
 		t.Error("Expected 2 + 2 to equal 4")
 	}
 }
@@ -15,11 +15,11 @@ func TestTableCalculate(t *testing.T) {
 		input    int
 		expected int
 	}{
-		{2, 4},
-		{-1, 1},
-		{0, 2},
-		{-5, -3},
-		{99999, 100001},
+		{2, 5},
+		{-1, 2},
+		{0, 3},
+		{-5, -2},
+		{99999, 100002},
 	}
 
 	for _, test := range tests {
